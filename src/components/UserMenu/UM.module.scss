@@ -1,0 +1,17 @@
+.button {
+  padding: 5px;
+  color: rgb(1, 116, 100);
+  font-size: 16px;
+  background-color: inherit;
+
+  margin-left: 25px;
+  letter-spacing: 4px;
+  &:hover {
+    background: #03e9f4;
+    border-radius: 5px;
+  }
+}
+.text {
+  padding: 5px;
+  font-size: 24px;
+}
