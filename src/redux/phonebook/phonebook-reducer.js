@@ -16,14 +16,14 @@ import {
 const contacts = createReducer([], {
   [fetchContactsSuccess]: (state, { payload }) => payload,
   [addContactSuccess]: (state, { payload }) => {
-    if (state.find(({ name }) => name === payload.name)) {
-      alert(`${payload.name}  is alredy in contacts`);
-    }
-    return [...state, payload];
+    if (state.find(({ name }) => name === !payload.name)) {
+      return [...state, payload];
+    } else alert(`${payload.name}  is alredy in contacts`);
   },
   [deleteContactSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
+
 const loading = createReducer(false, {
   [fetchContactsRequest]: () => true,
   [fetchContactsSuccess]: () => false,

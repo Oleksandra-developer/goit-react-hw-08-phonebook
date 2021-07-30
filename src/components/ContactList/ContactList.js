@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./ContactList.module.css";
 import { connect } from "react-redux";
-import { deleteContact } from "../redux/phonebook/phonebook-operation";
-import { getVisibleContacts } from "../redux/phonebook/contacts-selectors";
+import { deleteContact } from "../../redux/phonebook/phonebook-operation";
+import { getVisibleContacts } from "../../redux/phonebook/contacts-selectors";
 
 const ContactsList = ({ contacts, onDeleteContact }) => {
   return (

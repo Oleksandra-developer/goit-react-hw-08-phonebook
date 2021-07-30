@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styles from "./Form.module.css";
 import PropTypes from "prop-types";
-import { addContact } from "../redux/phonebook/phonebook-operation";
+import { addContact } from "../../redux/phonebook/phonebook-operation";
 
 class Form extends Component {
   state = {

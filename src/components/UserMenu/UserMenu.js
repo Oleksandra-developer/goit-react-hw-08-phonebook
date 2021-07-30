@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { authSelectors } from "../redux/auth";
-import { authOperations } from "../redux/auth";
+import { authSelectors } from "../../redux/auth";
+import { authOperations } from "../../redux/auth";
 import styles from "./UM.module.scss";
 
 const UserMenu = ({ email, onLogout }) => (

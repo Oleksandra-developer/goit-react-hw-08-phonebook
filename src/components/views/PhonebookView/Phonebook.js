@@ -4,9 +4,9 @@ import styles from "../../container.module.css";
 import ContactsList from "../../ContactList";
 import Filter from "../../Filter";
 import { connect } from "react-redux";
-import { getLoading } from "../../redux/phonebook/contacts-selectors";
+import { getLoading } from "../../../redux/phonebook/contacts-selectors";
 // /components/redux/phonebook/contacts-selectors
-import { fetchContacts } from "../../redux/phonebook/phonebook-operation";
+import { fetchContacts } from "../../../redux/phonebook/phonebook-operation";
 // import "./App.css";
 
 class PhonebookView extends Component {

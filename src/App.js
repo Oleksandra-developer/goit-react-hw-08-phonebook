@@ -2,10 +2,10 @@ import React, { Component, Suspense, lazy } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import AppBar from "./components/AppBar/AppBar";
 import Container from "./components/Container";
-import { authOperations } from "./components/redux/auth";
+import { authOperations } from "./redux/auth";
 import "./App.css";
 import { connect } from "react-redux";
-import PrivaeRoute from "./components/PrivaeRoute";
+import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 const HomeView = lazy(() => import("./components/views/HomeView"));
 const LoginView = lazy(() => import("./components/views/LoginView"));
@@ -27,7 +27,7 @@ class App extends Component {
             <PublicRoute exact path="/" component={HomeView} />
             <PublicRoute restricted path="/register" component={RegisterView} />
             <PublicRoute restricted path="/login" component={LoginView} />
-            <PrivaeRoute path="/contacts" component={Phonebook} />
+            <PrivateRoute path="/contacts" component={Phonebook} />
             <Redirect to="/" />
           </Switch>
         </Suspense>
