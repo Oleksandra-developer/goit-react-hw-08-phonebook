@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import styles from "./Form.module.css";
 import PropTypes from "prop-types";
 import { addContact } from "../../redux/phonebook/phonebook-operation";
+import { getAllContacts } from "../../redux/phonebook/contacts-selectors";
 
 class Form extends Component {
   state = {
@@ -15,7 +16,12 @@ class Form extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
+    const { name } = this.state;
+    const names = this.props.contacts.map((contact) => contact.name);
+    names.includes(name)
+      ? alert(`${name}  is alredy in contacts`)
+      : this.props.onSubmit({ ...this.state });
+
     this.reset();
   };
 
@@ -63,10 +69,12 @@ Form.propTypes = {
   name: PropTypes.string,
   number: PropTypes.string,
 };
-
+const mapStateToProps = (state) => ({
+  contacts: getAllContacts(state),
+});
 const mapDispatchToProps = (dispatch) => ({
   onSubmit: ({ name, number }) => {
     dispatch(addContact({ name, number }));
   },
 });
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
